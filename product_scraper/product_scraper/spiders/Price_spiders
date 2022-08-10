@@ -1,0 +1,18 @@
+import scrapy
+class Price_spiders(scrapy.Spider)
+    name = "perekrestok"
+    start_urls = ('https://www.perekrestok.ru')
+
+        def perse(self, response):
+            for link in response.css('response.css('div.sc-gsBrbv.fdopZn a::attr(href)').get()'):
+                yield response.follow(link, callback=self.parse_price)
+
+            for i in range (1, 25):
+                next_page = f''
+
+        def parce_price (self, response):
+            yield {
+                'type':response.css('span.breadcrumb ::text')[3].get(),
+                'name':response.css('h1.sc-fubCfw.cqjzZF.product__title ::text').get(),
+                'price':response.css('div.price-new::text').get().split()[0]
+            }
