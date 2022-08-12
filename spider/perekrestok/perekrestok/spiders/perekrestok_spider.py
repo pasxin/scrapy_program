@@ -4,9 +4,7 @@ from scrapy.linkextractors import LinkExtractor
 class Price_spiders(CrawlSpider):
     name = "spiders"
     allowed_domains = ["www.perekrestok.ru"]
-    start_urls = ['www.perekrestok.ru']  
-
-         
+    start_urls = ['www.perekrestok.ru']      
 
 rules = (
    Rule(LinkExtractor(allow='/cat/mc/'), follow=True),
