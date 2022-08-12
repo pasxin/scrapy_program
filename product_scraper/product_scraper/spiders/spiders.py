@@ -1,7 +1,7 @@
 import scrapy
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
-class Price_spiders(CrawlSpider):
+class spiders(CrawlSpider):
     name = "spiders"
     start_urls = ['https://www.perekrestok.ru/cat']
     rules =( Rule(LinkExtractor(restrict_css=response.css('div.Box-sc-149qidf-0.dgzgIv a::attr(href)').get())), 
